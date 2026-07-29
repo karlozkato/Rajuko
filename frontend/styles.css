@@ -80,6 +80,36 @@ h3 {
     background: var(--color-primario);
     border-color: var(--color-primario);
     color: #fff;
+
+/* Botón base: usado en Hero, Newsletter, Tarjetas de producto y CTA de Tienda.
+   Antes cada botón tenía su propio color/hover duplicado (y desincronizado:
+   el de newsletter usaba un hover distinto al resto). Ahora hay una sola
+   fuente de verdad para que el estilo de marca sea consistente en todo el sitio. */
+.btn {
+    display: inline-block;
+    background: var(--color-primario);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: var(--border-radius);
+    font-family: var(--fuente-principal);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: #ff89b0;
+    box-shadow: 0 0 25px rgba(243, 109, 150, .35);
+}
+
+.btn-lg {
+    padding: 18px 35px;
+    font-size: 18px;
 }
 
 header {
