@@ -6,7 +6,7 @@
     --color-texto-secundario: #B8B8B8;
     --color-de-exito: #48C774;
     --color-de-errores: #FF4F6A;
-
+    --color-acento: #4DE1E8;
     --fuente-principal: 'Inter', sans-serif;
 
     --border-radius: 12px;
@@ -500,6 +500,6 @@ section {
 }
 
 .newsletter-form button:hover {
-    background: #ff89b0;
+    background: #711433;
     box-shadow: 0 0 20px rgba(243, 109, 150, .35);
 }
