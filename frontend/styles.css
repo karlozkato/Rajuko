@@ -47,6 +47,62 @@ h3 {
 
 .btn:hover {
     transform: translateY(-3px);
+    filter: brightness(1.15);
+    box-shadow: 0 0 25px color-mix(in srgb, var(--color-primario) 45%, transparent);
+}
+
+.btn-lg {
+    padding: 18px 35px;
+    font-size: 18px;
+}
+
+/* Chip: opción seleccionable múltiple, usada en el quiz de "Crear Mi Mundo"
+   (y reutilizable en cualquier otro selector de tags a futuro). */
+.chip {
+    background: transparent;
+    color: var(--color-texto-secundario);
+    border: 1px solid #2A2A2A;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-family: var(--fuente-principal);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.chip:hover {
+    border-color: var(--color-primario);
+    color: var(--color-texto);
+}
+
+.chip[aria-pressed="true"] {
+    background: var(--color-primario);
+    border-color: var(--color-primario);
+    color: #fff;
+
+/* Botón base: usado en Hero, Newsletter, Tarjetas de producto y CTA de Tienda.
+   Antes cada botón tenía su propio color/hover duplicado (y desincronizado:
+   el de newsletter usaba un hover distinto al resto). Ahora hay una sola
+   fuente de verdad para que el estilo de marca sea consistente en todo el sitio. */
+.btn {
+    display: inline-block;
+    background: var(--color-primario);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: var(--border-radius);
+    font-family: var(--fuente-principal);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
     background: #ff89b0;
     box-shadow: 0 0 25px rgba(243, 109, 150, .35);
 }
@@ -96,8 +152,18 @@ header {
 
 nav {
     display: flex;
+    align-items: center;
 
     gap: 40px;
+}
+
+.mundo-badge {
+    padding: 6px 14px;
+    border: 1px solid var(--color-primario);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-primario);
 }
 
 nav a {

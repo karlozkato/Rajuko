@@ -35,6 +35,9 @@
     <nav>
       <a href="index.html">Inicio</a>
       <a href="productos.html" aria-current="page">Productos</a>
+      <a href="mi-mundo.html">Mi Mundo</a>
+      <a href="index.html#contacto">Contacto</a>
+      <span class="mundo-badge" data-mundo-actual hidden></span>
       <a href="index.html#contacto">Contacto</a>
     </nav>
   </header>
@@ -47,17 +50,18 @@
         gamer. <strong>Vístete como eres, no como quieren.</strong></p>
 
       <div class="filtros">
-        <button class="filtro activo" type="button">Todos</button>
-        <button class="filtro" type="button">Ropa</button>
-        <button class="filtro" type="button">Accesorios</button>
-        <button class="filtro" type="button">Gamer</button>
-        <button class="filtro" type="button">Novedades</button>
+        <button class="filtro activo" type="button" data-filtro="todos">Todos</button>
+        <button class="filtro" type="button" data-filtro="ropa">Ropa</button>
+        <button class="filtro" type="button" data-filtro="accesorios">Accesorios</button>
+        <button class="filtro" type="button" data-filtro="gamer">Gamer</button>
+        <button class="filtro" type="button" data-filtro="novedades">Novedades</button>
       </div>
     </section>
 
     <section class="productos">
       <div class="products-grid">
 
+        <article class="card" data-categoria="accesorios">
         <article class="card">
           <img src="./images/manillasalternativas.jpg" alt="Manillas Alternativas">
           <div class="card-info">
@@ -70,6 +74,7 @@
           </div>
         </article>
 
+        <article class="card" data-categoria="ropa novedades">
         <article class="card">
           <img src="./images/Camisa_Glitch.png" alt="Camiseta Glitch">
           <div class="card-info">
@@ -82,6 +87,7 @@
           </div>
         </article>
 
+        <article class="card" data-categoria="accesorios">
         <article class="card">
           <img src="./images/Gorro_Streetwear.png" alt="Gorro Streetwear">
           <div class="card-info">
@@ -94,6 +100,7 @@
           </div>
         </article>
 
+        <article class="card" data-categoria="ropa novedades">
         <article class="card">
           <img src="./images/Sudadera_Retro.png" alt="Sudadera Retro">
           <div class="card-info">
@@ -106,6 +113,7 @@
           </div>
         </article>
 
+        <article class="card" data-categoria="gamer">
         <article class="card">
           <img src="./images/Stickers_Pack_Gamer.png" alt="Stickers Pack Gamer">
           <div class="card-info">
@@ -118,6 +126,7 @@
           </div>
         </article>
 
+        <article class="card" data-categoria="accesorios">
         <article class="card">
           <img src="./images/Collar_Alternativo.png" alt="Collar Alternativo">
           <div class="card-info">
@@ -139,6 +148,9 @@
       &copy; 2026 RAJUKO. Todos los derechos reservados.
     </p>
   </footer>
+
+  <script src="mundos.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 
 </html>
