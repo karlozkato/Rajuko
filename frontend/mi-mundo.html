@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crea tu Mundo — RAJUKO</title>
+  <meta name="description"
+    content="Descubre tu Mundo Personal en RAJUKO: contanos tu música, tus gustos gamer y tus referencias visuales, y transformamos la tienda para vos.">
+
+  <link rel="icon" type="image/png" href="./images/isotipo.png?v=2">
+
+  <meta property="og:title" content="Crea tu Mundo — RAJUKO">
+  <meta property="og:description" content="Tu música, tus gustos gamer y tus referencias visuales transforman RAJUKO.">
+  <meta property="og:image" content="./images/isotipo.png">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mi-mundo.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html#inicio" class="brand" aria-label="RAJUKO — Inicio">
+      <img src="./images/isotipo.png" alt="" class="logo">
+      <span class="brand-name">RAJUKO</span>
+    </a>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Productos</a>
+      <a href="mi-mundo.html" aria-current="page">Mi Mundo</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <p class="section-eyebrow">Descubre tu identidad</p>
+      <h1>Crea tu Mundo</h1>
+      <p>Elegí lo que te representa. Con eso construimos tu versión de RAJUKO: colores, productos destacados y
+        mensajes, todo pensado para vos.</p>
+    </section>
+
+    <section class="mundo-quiz-section">
+      <form class="quiz-mundo">
+
+        <fieldset>
+          <legend>Música</legend>
+          <div class="chip-group">
+            <button type="button" class="chip" data-tag="rock" aria-pressed="false">Rock</button>
+            <button type="button" class="chip" data-tag="emo" aria-pressed="false">Emo</button>
+            <button type="button" class="chip" data-tag="midwest-emo" aria-pressed="false">Midwest Emo</button>
+            <button type="button" class="chip" data-tag="shoegaze" aria-pressed="false">Shoegaze</button>
+            <button type="button" class="chip" data-tag="indie" aria-pressed="false">Indie</button>
+            <button type="button" class="chip" data-tag="grunge" aria-pressed="false">Grunge</button>
+            <button type="button" class="chip" data-tag="metal" aria-pressed="false">Metal</button>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Gustos gamer</legend>
+          <div class="chip-group">
+            <button type="button" class="chip" data-tag="ps2" aria-pressed="false">PS2</button>
+            <button type="button" class="chip" data-tag="nintendo" aria-pressed="false">Nintendo</button>
+            <button type="button" class="chip" data-tag="silent-hill" aria-pressed="false">Silent Hill</button>
+            <button type="button" class="chip" data-tag="omori" aria-pressed="false">Omori</button>
+            <button type="button" class="chip" data-tag="pixel-art" aria-pressed="false">Pixel Art</button>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Referencias visuales</legend>
+          <div class="chip-group">
+            <button type="button" class="chip" data-tag="y2k" aria-pressed="false">Y2K</button>
+            <button type="button" class="chip" data-tag="streetwear" aria-pressed="false">Streetwear</button>
+            <button type="button" class="chip" data-tag="gotico" aria-pressed="false">Gótico</button>
+            <button type="button" class="chip" data-tag="anime" aria-pressed="false">Anime</button>
+            <button type="button" class="chip" data-tag="evangelion" aria-pressed="false">Evangelion</button>
+            <button type="button" class="chip" data-tag="nostalgia" aria-pressed="false">Nostalgia</button>
+            <button type="button" class="chip" data-tag="cultura-digital" aria-pressed="false">Cultura Digital</button>
+          </div>
+        </fieldset>
+
+        <p class="quiz-aviso" role="status" aria-live="polite"></p>
+
+        <button type="submit" class="btn btn-lg">Descubrir mi Mundo</button>
+      </form>
+
+      <article class="mundo-resultado" hidden>
+        <p class="section-eyebrow">Tu resultado</p>
+        <h2 data-resultado-nombre></h2>
+        <div class="mundo-swatch" data-resultado-swatch aria-hidden="true"></div>
+        <p data-resultado-texto></p>
+        <a href="index.html" class="btn btn-lg" data-resultado-cta>Entrar a mi Mundo</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2026 RAJUKO. Todos los derechos reservados.
+    </p>
+  </footer>
+
+  <script src="mundos.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="mi-mundo.js" defer></script>
+</body>
+
+</html>
