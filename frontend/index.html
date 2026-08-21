@@ -23,10 +23,39 @@
 <body>
 
   <header>
-    <a href="#inicio" class="brand" aria-label="RAJUKO — Inicio">
-      <img src="./images/isotipo.png" alt="" class="logo">
-      <span class="brand-name">RAJUKO</span>
-    </a>
+    <div class="header-top">
+      <div class="header-side"></div>
+
+      <a href="#inicio" class="brand" aria-label="RAJUKO — Inicio">
+        <img src="./images/isotipo.png" alt="" class="logo">
+        <span class="brand-name">RAJUKO</span>
+      </a>
+
+      <div class="header-side header-icons">
+        <button type="button" class="icon-btn" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button type="button" class="icon-btn" aria-label="Mi cuenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <button type="button" class="icon-btn" aria-label="Carrito">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
 
     <nav>
       <a href="#inicio">Inicio</a>
@@ -40,11 +69,39 @@
   <main>
 
     <section class="hero" id="inicio">
-      <p class="hero-eyebrow">Colección Alternativa 2026</p>
-      <h1>Vístete como eres.</h1>
-      <p data-hero-texto>Ropa, accesorios y objetos para quienes nunca encajaron en lo común.</p>
-      <button type="button" class="btn btn-lg">Explorar colección</button>
-      <img src="./images/isotipo.png" alt="" class="hero-bg-icon">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Colección Alternativa 2026</p>
+        <h1>Vístete como eres.</h1>
+        <p data-hero-texto>Ropa, accesorios y objetos para quienes nunca encajaron en lo común.</p>
+        <button type="button" class="btn btn-lg">Explorar colección</button>
+      </div>
+
+      <div class="hero-showcase" aria-hidden="true">
+        <div class="hero-showcase-col">
+          <img src="./images/manillasalternativas.jpg" alt="">
+          <img src="./images/Camisa_Retro.jpg" alt="">
+          <img src="./images/Llavero_Gamer.jpg" alt="">
+          <img src="./images/manillasalternativas.jpg" alt="">
+          <img src="./images/Anillos_Rock.avif" alt="">
+          <img src="./images/manillasalternativas.jpg" alt="">
+          <img src="./images/Camisa_Retro.jpg" alt="">
+          <img src="./images/Llavero_Gamer.jpg" alt="">
+          <img src="./images/manillasalternativas.jpg" alt="">
+          <img src="./images/Anillos_Rock.avif" alt="">
+        </div>
+        <div class="hero-showcase-col hero-showcase-col--reversa">
+          <img src="./images/Collar_Alternativo.png" alt="">
+          <img src="./images/Camisa_Retro.jpg" alt="">
+          <img src="./images/Llavero_Gamer.jpg" alt="">
+          <img src="./images/Anillos_Rock.avif" alt="">
+          <img src="./images/Collar_Alternativo.avif" alt="">
+          <img src="./images/Camisa_Retro.jpg" alt="">
+          <img src="./images/Anillos_Rock.avif" alt="">
+          <img src="./images/Llavero_Gamer.jpg" alt="">
+          <img src="./images/manillasalternativas.jpg" alt="">
+          <img src="./images/Collar_Alternativo.avif" alt="">
+        </div>
+      </div>
     </section>
 
     <section id="sobre-nosotros">
