@@ -84,14 +84,9 @@ h3 {
 
 header {
     width: 100%;
-    height: 80px;
     background: rgba(17, 17, 17, .65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 70px;
     box-sizing: border-box;
     border-bottom: 1px solid #252525;
     position: sticky;
@@ -99,22 +94,65 @@ header {
     z-index: 100;
 }
 
+.header-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 70px;
+}
+
+.header-side {
+    display: flex;
+    align-items: center;
+}
+
+.header-icons {
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+.icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--color-texto);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.icon-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+.icon-btn:hover {
+    color: var(--color-primario);
+    transform: translateY(-2px);
+}
+
 .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 14px;
     text-decoration: none;
 }
 
 .brand-name {
     font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 32px;
     color: var(--color-texto);
 }
 
 .logo {
-    height: 65px;
+    height: 72px;
     width: auto;
     transition: .3s;
 
@@ -122,9 +160,12 @@ header {
 
 nav {
     display: flex;
+    justify-content: center;
     align-items: center;
 
     gap: 40px;
+    padding: 14px 70px 18px;
+    border-top: 1px solid #1e1e1e;
 }
 
 .mundo-badge {
@@ -210,29 +251,36 @@ nav a:hover::after {
 .hero {
 
     min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
     align-items: center;
-    text-align: center;
+    gap: 70px;
+    text-align: left;
     position: relative;
     overflow: hidden;
+    padding: 90px 70px;
 }
 
-.hero-bg-icon {
+/* Grano sutil (referencia A24 / estética editorial) — le da textura al fondo
+   oscuro sin necesitar fotografía propia. */
+.hero::before {
+    content: "";
     position: absolute;
-    top: 50%;
-    right: -100px;
-    transform: translateY(-50%);
-    width: 500px;
-    opacity: .06;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: .05;
+    mix-blend-mode: overlay;
     pointer-events: none;
     z-index: 0;
 }
 
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
 .hero h1,
-.hero p,
-.hero button,
+.hero-content p,
 .hero-eyebrow {
     position: relative;
     z-index: 1;
@@ -242,26 +290,213 @@ nav a:hover::after {
 
     font-family: "Space Grotesk";
 
-    font-size: 72px;
+    font-size: 64px;
 
     margin: 0;
 
 }
 
-.hero p {
+.hero-content p {
 
     color: var(--color-texto-secundario);
 
-    font-size: 20px;
+    font-size: 19px;
 
-    width: 700px;
-
-    max-width: 90%;
+    max-width: 480px;
 
 }
 
 .hero .btn {
     margin-top: 35px;
+}
+
+/* Panel con la grilla de productos que se desplaza sola en loop. */
+.hero-showcase {
+    position: relative;
+    z-index: 1;
+    height: 620px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 14px;
+    border: 1px solid #2A2A2A;
+    border-radius: 28px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 25% 15%, color-mix(in srgb, var(--color-primario) 18%, transparent), transparent 60%),
+        #141414;
+}
+
+/* Difumina el borde superior e inferior de la grilla para que el loop se
+   sienta continuo, sin un corte brusco donde empieza/termina cada foto. */
+.hero-showcase::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #141414 0%, transparent 18%, transparent 82%, #141414 100%);
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 28px;
+}
+
+.hero-showcase-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    animation: scroll-up 32s linear infinite;
+}
+
+.hero-showcase-col--reversa {
+    animation-name: scroll-down;
+    animation-duration: 38s;
+}
+
+.hero-showcase-col img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid #2A2A2A;
+    display: block;
+}
+
+@keyframes scroll-up {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes scroll-down {
+    from {
+        transform: translateY(-50%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-showcase-col,
+    .hero-showcase-col--reversa {
+        animation: none;
+    }
+}
+
+/* ===== Responsive: tablet ===== */
+@media (max-width: 992px) {
+
+    .header-top {
+        padding: 16px 30px;
+        gap: 12px;
+    }
+
+    .logo {
+        height: 56px;
+    }
+
+    .brand-name {
+        font-size: 26px;
+    }
+
+    nav {
+        padding: 12px 30px 16px;
+        gap: 26px;
+        flex-wrap: wrap;
+    }
+
+    section {
+        padding: 70px 40px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 30px;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero-content p {
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    .hero-showcase {
+        height: 360px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+/* ===== Responsive: celular ===== */
+@media (max-width: 600px) {
+
+    .header-top {
+        padding: 14px 20px;
+        gap: 8px;
+    }
+
+    .logo {
+        height: 42px;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .header-icons {
+        gap: 8px;
+    }
+
+    .icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .icon-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    nav {
+        padding: 10px 16px 14px;
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-showcase {
+        height: 280px;
+    }
 }
 
 .productos {
