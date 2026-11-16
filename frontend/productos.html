@@ -27,10 +27,25 @@
 
 <body>
   <header>
-    <a href="index.html#inicio" class="brand" aria-label="RAJUKO — Inicio">
-      <img src="./images/isotipo.png" alt="" class="logo">
-      <span class="brand-name">RAJUKO</span>
-    </a>
+    <div class="header-top">
+      <div class="header-side"></div>
+
+      <a href="index.html#inicio" class="brand" aria-label="RAJUKO — Inicio">
+        <img src="./images/isotipo.png" alt="" class="logo">
+        <span class="brand-name">RAJUKO</span>
+      </a>
+
+      <div class="header-side header-icons">
+        <!-- Íconos reservados para fases futuras (buscar, cuenta, carrito).
+             Se comentan para no mostrar botones sin función. Para reactivarlos,
+             descomentar cada botón cuando exista su funcionalidad real. -->
+        <!--
+        <button type="button" class="icon-btn" aria-label="Buscar">...</button>
+        <button type="button" class="icon-btn" aria-label="Mi cuenta">...</button>
+        <button type="button" class="icon-btn" aria-label="Carrito">...</button>
+        -->
+      </div>
+    </div>
 
     <nav>
       <a href="index.html">Inicio</a>
@@ -60,6 +75,7 @@
     <section class="productos">
       <div class="products-grid">
 
+        <!-- Precios provisionales: se reemplazarán por datos reales (API/BD). -->
         <article class="card" data-categoria="accesorios">
           <img src="./images/manillasalternativas.jpg" alt="Manillas Alternativas">
           <div class="card-info">
@@ -67,68 +83,41 @@
             <p>Manillas inspiradas en la cultura rock.</p>
             <p class="card-price">$25.000</p>
           </div>
-          <div class="card-actions">
-            <button type="button" class="btn">Agregar al carrito</button>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="ropa novedades">
-          <img src="./images/Camisa_Glitch.png" alt="Camiseta Glitch">
-          <div class="card-info">
-            <h3>Camiseta Glitch</h3>
-            <p>Camiseta oversize con estampado glitch original.</p>
-            <p class="card-price">$70.000</p>
-          </div>
-          <div class="card-actions">
-            <button type="button" class="btn">Agregar al carrito</button>
-          </div>
         </article>
 
         <article class="card" data-categoria="accesorios">
-          <img src="./images/Gorro_Streetwear.png" alt="Gorro Streetwear">
-          <div class="card-info">
-            <h3>Gorro Streetwear</h3>
-            <p>Gorro tejido con etiqueta RAJUKO bordada.</p>
-            <p class="card-price">$40.000</p>
-          </div>
-          <div class="card-actions">
-            <button type="button" class="btn">Agregar al carrito</button>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="ropa novedades">
-          <img src="./images/Sudadera_Retro.png" alt="Sudadera Retro">
-          <div class="card-info">
-            <h3>Sudadera Retro</h3>
-            <p>Hoodie negro con detalles retro y capucha amplia.</p>
-            <p class="card-price">$120.000</p>
-          </div>
-          <div class="card-actions">
-            <button type="button" class="btn">Agregar al carrito</button>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="gamer">
-          <img src="./images/Stickers_Pack_Gamer.png" alt="Stickers Pack Gamer">
-          <div class="card-info">
-            <h3>Stickers Pack Gamer</h3>
-            <p>Set de stickers resistentes al agua, edición gamer.</p>
-            <p class="card-price">$15.000</p>
-          </div>
-          <div class="card-actions">
-            <button type="button" class="btn">Agregar al carrito</button>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="accesorios">
-          <img src="./images/Collar_Alternativo.png" alt="Collar Alternativo">
+          <img src="./images/Collar_Alternativo.avif" alt="Collar Alternativo">
           <div class="card-info">
             <h3>Collar Alternativo</h3>
-            <p>Collar de acero con dije inspirado en el isotipo RAJUKO.</p>
+            <p>Collar alternativo inspirado en la cultura gótica.</p>
             <p class="card-price">$35.000</p>
           </div>
-          <div class="card-actions">
-            <button type="button" class="btn">Agregar al carrito</button>
+        </article>
+
+        <article class="card" data-categoria="accesorios">
+          <img src="./images/Anillos_Rock.avif" alt="Anillos Rock">
+          <div class="card-info">
+            <h3>Anillos Rock</h3>
+            <p>Anillos alternativos de actitud rock.</p>
+            <p class="card-price">$30.000</p>
+          </div>
+        </article>
+
+        <article class="card" data-categoria="accesorios gamer">
+          <img src="./images/Llavero_Gamer.jpg" alt="Llavero Gamer">
+          <div class="card-info">
+            <h3>Llavero Gamer</h3>
+            <p>Llaveros para expresar tu personalidad.</p>
+            <p class="card-price">$18.000</p>
+          </div>
+        </article>
+
+        <article class="card" data-categoria="ropa novedades">
+          <img src="./images/Camisa_Retro.jpg" alt="Camisa Retro">
+          <div class="card-info">
+            <h3>Camisa Retro</h3>
+            <p>Más que una camisa, una forma de expresarte.</p>
+            <p class="card-price">$70.000</p>
           </div>
         </article>
 
