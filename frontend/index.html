@@ -13,6 +13,7 @@
   <meta property="og:image" content="./images/isotipo.png">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="componentes.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -140,48 +141,8 @@
     <section id="productos" class="productos">
       <h2>Nuestros Productos</h2>
 
-      <div class="products-grid">
-
-        <article class="card" data-categoria="accesorios">
-          <img src="./images/manillasalternativas.jpg" alt="Manillas Alternativas">
-          <div class="card-info">
-            <h3>Manillas Alternativas</h3>
-            <p>Manillas inspiradas en la cultura rock.</p>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="accesorios">
-          <img src="./images/Collar_Alternativo.avif" alt="Collares Alternativos">
-          <div class="card-info">
-            <h3>Collares Alternativos</h3>
-            <p>Collares inspirados en la cultura gótica.</p>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="accesorios">
-          <img src="./images/Anillos_Rock.avif" alt="Anillos Rock">
-          <div class="card-info">
-            <h3>Anillos Rock</h3>
-            <p>Anillos alternativos, Material extraordinario.</p>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="accesorios gamer">
-          <img src="./images/Llavero_Gamer.jpg" alt="LLavero Gamer">
-          <div class="card-info">
-            <h3>LLavero Gamer</h3>
-            <p>LLaveros para expresar tu personalidad.</p>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="ropa novedades">
-          <img src="./images/Camisa_Retro.jpg" alt="Camisas Retro">
-          <div class="card-info">
-            <h3>Camisa Retro</h3>
-            <p>Más que una Camisa, una forma de expresarte.</p>
-          </div>
-        </article>
-
+      <div class="products-grid" data-api-productos>
+        <noscript><p>Activa JavaScript para ver los productos.</p></noscript>
       </div>
       <div class="section-cta">
         <a href="productos.html" class="btn btn-lg">Ver tienda completa</a>
@@ -192,10 +153,14 @@
     <section id="newsletter" class="newsletter">
       <p class="section-eyebrow">Únete a la comunidad</p>
       <h2>No te pierdas nada</h2>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Tu correo electrónico" required>
+      <form id="form-newsletter" class="newsletter-form" novalidate>
+        <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
+        <input id="newsletter-email" name="email" type="email" placeholder="Tu correo electrónico"
+          autocomplete="email" maxlength="150" aria-describedby="error-newsletter-email" required>
         <button type="submit" class="btn">Suscribirme</button>
+        <p id="error-newsletter-email" class="campo-error" data-error-de="email" hidden></p>
       </form>
+      <p id="newsletter-estado" class="form-estado" role="status" aria-live="polite"></p>
     </section>
 
     <section id="contacto">
@@ -204,6 +169,30 @@
       <p class="contact-text">
         Si tienes alguna pregunta o necesitas información adicional, escríbenos.
       </p>
+      <form id="form-contacto" class="form-contacto" novalidate>
+        <div class="campo">
+          <label for="contacto-nombre">Nombre</label>
+          <input id="contacto-nombre" name="nombre" type="text" autocomplete="name"
+            maxlength="100" aria-describedby="error-nombre" required>
+          <p id="error-nombre" class="campo-error" data-error-de="nombre" hidden></p>
+        </div>
+        <div class="campo">
+          <label for="contacto-email">Correo electrónico</label>
+          <input id="contacto-email" name="email" type="email" autocomplete="email"
+            maxlength="150" aria-describedby="error-email" required>
+          <p id="error-email" class="campo-error" data-error-de="email" hidden></p>
+        </div>
+        <div class="campo">
+          <label for="contacto-mensaje">Mensaje</label>
+          <textarea id="contacto-mensaje" name="mensaje" maxlength="2000"
+            aria-describedby="error-mensaje" required></textarea>
+          <p id="error-mensaje" class="campo-error" data-error-de="mensaje" hidden></p>
+        </div>
+        <button type="submit" class="btn btn-lg">Enviar mensaje</button>
+      </form>
+      <p id="contacto-estado" class="form-estado" role="status" aria-live="polite"></p>
+
+      <p class="contact-alterno">También puedes escribirnos directamente:</p>
       <a href="mailto:cisacc.guzman@gmail.com" class="contact-email">
         cisacc.guzman@gmail.com
       </a>
@@ -215,7 +204,11 @@
     </p>
   </footer>
 
+  <script src="config.js" defer></script>
+  <script src="api.js" defer></script>
   <script src="mundos.js" defer></script>
+  <script src="catalogo.js" defer></script>
+  <script src="formularios.js" defer></script>
   <script src="main.js" defer></script>
 </body>
 
