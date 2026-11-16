@@ -11,11 +11,14 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch --env-file=.env server.js",
-    "db:init": "node --env-file=.env db/init.js"
+    "db:init": "node --env-file=.env db/init.js",
+    "admin:crear": "node --env-file=.env db/crear-admin.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.24.6"
   }
 }
