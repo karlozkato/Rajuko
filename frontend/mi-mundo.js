@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     if (seleccionados.size === 0) {
-      aviso.textContent = 'Elegí al menos una opción para descubrir tu Mundo.';
+      aviso.textContent = 'Elige al menos una opción para descubrir tu Mundo.';
       return;
     }
 

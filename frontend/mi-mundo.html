@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crea tu Mundo — RAJUKO</title>
   <meta name="description"
-    content="Descubre tu Mundo Personal en RAJUKO: contanos tu música, tus gustos gamer y tus referencias visuales, y transformamos la tienda para vos.">
+    content="Descubre tu Mundo Personal en RAJUKO: cuéntanos tu música, tus gustos gamer y tus referencias visuales, y transformamos la tienda para ti.">
 
   <link rel="icon" type="image/png" href="./images/isotipo.png?v=2">
 
@@ -27,16 +27,32 @@
 
 <body>
   <header>
-    <a href="index.html#inicio" class="brand" aria-label="RAJUKO — Inicio">
-      <img src="./images/isotipo.png" alt="" class="logo">
-      <span class="brand-name">RAJUKO</span>
-    </a>
+    <div class="header-top">
+      <div class="header-side"></div>
+
+      <a href="index.html#inicio" class="brand" aria-label="RAJUKO — Inicio">
+        <img src="./images/isotipo.png" alt="" class="logo">
+        <span class="brand-name">RAJUKO</span>
+      </a>
+
+      <div class="header-side header-icons">
+        <!-- Íconos reservados para fases futuras (buscar, cuenta, carrito).
+             Se comentan para no mostrar botones sin función. Para reactivarlos,
+             descomentar cada botón cuando exista su funcionalidad real. -->
+        <!--
+        <button type="button" class="icon-btn" aria-label="Buscar">...</button>
+        <button type="button" class="icon-btn" aria-label="Mi cuenta">...</button>
+        <button type="button" class="icon-btn" aria-label="Carrito">...</button>
+        -->
+      </div>
+    </div>
 
     <nav>
       <a href="index.html">Inicio</a>
       <a href="productos.html">Productos</a>
       <a href="mi-mundo.html" aria-current="page">Mi Mundo</a>
       <a href="index.html#contacto">Contacto</a>
+      <span class="mundo-badge" data-mundo-actual hidden></span>
     </nav>
   </header>
 
@@ -44,8 +60,8 @@
     <section class="page-header">
       <p class="section-eyebrow">Descubre tu identidad</p>
       <h1>Crea tu Mundo</h1>
-      <p>Elegí lo que te representa. Con eso construimos tu versión de RAJUKO: colores, productos destacados y
-        mensajes, todo pensado para vos.</p>
+      <p>Elige lo que te representa. Con eso construimos tu versión de RAJUKO: colores, productos destacados y
+        mensajes, todo pensado para ti.</p>
     </section>
 
     <section class="mundo-quiz-section">
