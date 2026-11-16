@@ -10,6 +10,17 @@ function requerida(nombre) {
   return valor;
 }
 
+// El secreto con el que se firman los tokens. Si fuera corto o adivinable,
+// cualquiera podría fabricar tokens falsos y entrar como administrador; por eso
+// se exige una longitud mínima y el servidor NO arranca sin él.
+function secretoJwt() {
+  const secreto = requerida('JWT_SECRET');
+  if (secreto.length < 32) {
+    throw new Error('JWT_SECRET debe tener al menos 32 caracteres. Genera uno con el comando de backend/.env.example');
+  }
+  return secreto;
+}
+
 export const config = {
   port: Number(process.env.PORT) || 3000,
 
@@ -20,6 +31,13 @@ export const config = {
     password: requerida('DB_PASSWORD'),
     database: requerida('DB_NAME'),
     ssl: process.env.DB_SSL === 'true',
+  },
+
+  // Autenticación del administrador (JWT).
+  jwt: {
+    secret: secretoJwt(),
+    // Vigencia del token. Formato de la librería jsonwebtoken: "2h", "30m"...
+    expiresIn: process.env.JWT_EXPIRES_IN || '2h',
   },
 
   // Lista blanca de orígenes permitidos por CORS.

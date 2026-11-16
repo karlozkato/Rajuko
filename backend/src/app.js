@@ -7,12 +7,16 @@ import { pool } from './db.js';
 import { productosRouter } from './routes/productos.js';
 import { contactoRouter } from './routes/contacto.js';
 import { suscriptoresRouter } from './routes/suscriptores.js';
+import { authRouter } from './routes/auth.js';
 
 export const app = express();
 
 // Detrás del proxy de Render, req.ip sería la IP del proxy. Con esto Express
 // toma la IP real del visitante (la usa el limitador de peticiones).
 app.set('trust proxy', 1);
+
+// No anunciar que usamos Express (cabecera X-Powered-By): un dato menos para un atacante.
+app.disable('x-powered-by');
 
 app.use(express.json({ limit: '50kb' }));
 
@@ -42,6 +46,7 @@ app.get('/api/health', async (_req, res) => {
 app.use('/api/productos', productosRouter);
 app.use('/api/contacto', contactoRouter);
 app.use('/api/suscriptores', suscriptoresRouter);
+app.use('/api/auth', authRouter);
 
 // Ruta inexistente
 app.use((_req, res) => res.status(404).json({ error: 'Ruta no encontrada.' }));
