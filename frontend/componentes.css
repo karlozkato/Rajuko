@@ -1,0 +1,168 @@
+/* RAJUKO — componentes.css
+   Estilos de componentes que dependen de la API: estados de carga/error del
+   catálogo, esqueletos y formularios (contacto y newsletter).
+   Usa las variables de color definidas en styles.css. */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Estado del catálogo ---------- */
+.estado-catalogo {
+  text-align: center;
+  color: var(--color-texto-secundario);
+  margin-top: 30px;
+  min-height: 1.5em;
+}
+
+.estado-catalogo .estado-error {
+  color: var(--color-de-errores);
+  margin: 0 0 18px;
+}
+
+/* ---------- Esqueletos (placeholder animado mientras carga) ---------- */
+.card-esqueleto:hover {
+  transform: none;
+  border-color: #2A2A2A;
+}
+
+.esqueleto-img {
+  height: 280px;
+  background: #222;
+  animation: pulso 1.4s ease-in-out infinite;
+}
+
+.esqueleto-linea {
+  height: 14px;
+  border-radius: 6px;
+  background: #2a2a2a;
+  margin: 8px 0;
+  animation: pulso 1.4s ease-in-out infinite;
+}
+
+.esqueleto-linea.corta {
+  width: 60%;
+}
+
+@keyframes pulso {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .esqueleto-img,
+  .esqueleto-linea {
+    animation: none;
+  }
+}
+
+/* ---------- Formularios ---------- */
+.form-contacto {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: left;
+  display: grid;
+  gap: 18px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #1a1a1a;
+  border: 1px solid #2A2A2A;
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-size: 15px;
+}
+
+.form-contacto textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-contacto input:focus,
+.form-contacto textarea:focus,
+.newsletter-form input:focus-visible {
+  outline: none;
+  border-color: var(--color-primario);
+}
+
+.form-contacto [aria-invalid="true"],
+.newsletter-form [aria-invalid="true"] {
+  border-color: var(--color-de-errores);
+}
+
+.campo-error {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--color-de-errores);
+}
+
+.form-contacto .btn {
+  justify-self: start;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Mensaje general bajo el formulario */
+.form-estado {
+  margin: 16px 0 0;
+  min-height: 1.4em;
+  font-size: 15px;
+  color: var(--color-texto-secundario);
+}
+
+.form-estado--exito  { color: var(--color-de-exito); }
+.form-estado--error  { color: var(--color-de-errores); }
+
+#contacto .form-estado {
+  text-align: left;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-alterno {
+  margin: 40px 0 10px;
+  color: var(--color-texto-secundario);
+  font-size: 14px;
+}
+
+.newsletter-form .campo-error {
+  flex-basis: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+.newsletter .form-estado {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .form-contacto .btn {
+    justify-self: stretch;
+  }
+}
