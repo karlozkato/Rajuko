@@ -17,6 +17,7 @@
 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="productos.css">
+  <link rel="stylesheet" href="componentes.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,54 +74,8 @@
     </section>
 
     <section class="productos">
-      <div class="products-grid">
-
-        <!-- Precios provisionales: se reemplazarán por datos reales (API/BD). -->
-        <article class="card" data-categoria="accesorios">
-          <img src="./images/manillasalternativas.jpg" alt="Manillas Alternativas">
-          <div class="card-info">
-            <h3>Manillas Alternativas</h3>
-            <p>Manillas inspiradas en la cultura rock.</p>
-            <p class="card-price">$25.000</p>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="accesorios">
-          <img src="./images/Collar_Alternativo.avif" alt="Collar Alternativo">
-          <div class="card-info">
-            <h3>Collar Alternativo</h3>
-            <p>Collar alternativo inspirado en la cultura gótica.</p>
-            <p class="card-price">$35.000</p>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="accesorios">
-          <img src="./images/Anillos_Rock.avif" alt="Anillos Rock">
-          <div class="card-info">
-            <h3>Anillos Rock</h3>
-            <p>Anillos alternativos de actitud rock.</p>
-            <p class="card-price">$30.000</p>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="accesorios gamer">
-          <img src="./images/Llavero_Gamer.jpg" alt="Llavero Gamer">
-          <div class="card-info">
-            <h3>Llavero Gamer</h3>
-            <p>Llaveros para expresar tu personalidad.</p>
-            <p class="card-price">$18.000</p>
-          </div>
-        </article>
-
-        <article class="card" data-categoria="ropa novedades">
-          <img src="./images/Camisa_Retro.jpg" alt="Camisa Retro">
-          <div class="card-info">
-            <h3>Camisa Retro</h3>
-            <p>Más que una camisa, una forma de expresarte.</p>
-            <p class="card-price">$70.000</p>
-          </div>
-        </article>
-
+      <div class="products-grid" data-api-productos data-precio>
+        <noscript><p>Activa JavaScript para ver los productos.</p></noscript>
       </div>
     </section>
   </main>
@@ -131,7 +86,10 @@
     </p>
   </footer>
 
+  <script src="config.js" defer></script>
+  <script src="api.js" defer></script>
   <script src="mundos.js" defer></script>
+  <script src="catalogo.js" defer></script>
   <script src="main.js" defer></script>
 </body>
 
