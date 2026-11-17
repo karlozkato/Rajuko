@@ -21,11 +21,7 @@
     '/': { titulo: 'Panel', render: (c) => renderDashboard(c) },
     '/productos': {
       titulo: 'Productos',
-      pendiente: {
-        icono: 'caja',
-        texto: 'La gestión visual de productos (crear, editar, ocultar y eliminar) llega en la siguiente etapa.',
-        api: 'La API ya está lista y probada: /api/admin/productos.',
-      },
+      render: (c) => renderProductos(c),
     },
     '/mensajes': {
       titulo: 'Mensajes',
