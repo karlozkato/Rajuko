@@ -752,3 +752,218 @@ section {
     outline: none;
     border-color: var(--color-primario);
 }
+/* ========================================================================
+   AJUSTES RESPONSIVE — móviles
+   Estas reglas se mantienen al final para prevalecer sobre los estilos
+   generales anteriores que establecen paddings de escritorio.
+   ======================================================================== */
+@media (max-width: 600px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    body {
+        overflow-x: clip;
+    }
+
+    .header-top {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 8px;
+        padding: 12px 16px;
+    }
+
+    .brand {
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .logo {
+        width: 38px;
+        height: 38px;
+        object-fit: contain;
+    }
+
+    .brand-name {
+        font-size: clamp(17px, 5vw, 21px);
+        white-space: nowrap;
+    }
+
+    nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 18px;
+        padding: 12px 16px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        flex: 0 0 auto;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    section {
+        padding: 48px 18px;
+    }
+
+    .hero {
+        min-height: auto;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding: 48px 18px 38px;
+        text-align: left;
+    }
+
+    .hero-content {
+        width: 100%;
+        margin: 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 9vw, 42px);
+        line-height: 1.08;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-content p {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .hero .btn {
+        margin-top: 22px;
+    }
+
+    .hero-showcase {
+        width: 100%;
+        height: clamp(190px, 65vw, 270px);
+        min-width: 0;
+        gap: 8px;
+        padding: 8px;
+        border-radius: 18px;
+    }
+
+    .hero-showcase-col {
+        gap: 8px;
+    }
+
+    .hero-showcase-col img {
+        border-radius: 10px;
+    }
+
+    .productos {
+        padding: 48px 16px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .card {
+        min-width: 0;
+        border-radius: 13px;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+    }
+
+    .card-info {
+        min-width: 0;
+        padding: 11px 10px 13px;
+    }
+
+    .card h3 {
+        font-size: 14px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    .card p {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+    .card p.card-price {
+        font-size: 15px;
+        margin-top: 8px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+    }
+
+    .about-visual {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        padding: 28px;
+    }
+
+    .why-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        margin-top: 28px;
+    }
+
+    .why-item {
+        padding: 24px 18px;
+    }
+
+    #contacto .contact-email {
+        max-width: 100%;
+        font-size: clamp(15px, 4.5vw, 19px);
+        overflow-wrap: anywhere;
+    }
+
+    .newsletter-form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .newsletter-form input,
+    .newsletter-form .btn {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    footer {
+        padding: 28px 18px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 380px) {
+    .products-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .card h3 {
+        font-size: 16px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+}
