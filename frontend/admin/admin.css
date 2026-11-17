@@ -372,3 +372,87 @@ img { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ==========================================================================
+   UI COMPARTIDA (ui.js): botón de peligro, avisos (toasts) y ventana de confirmación
+   Se añade al final del archivo: no modifica nada de lo anterior.
+   ========================================================================== */
+
+/* Rojo reservado SOLO para acciones destructivas. Texto oscuro: contraste ~6.1:1. */
+.btn-peligro {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--error); color: #0D0D0D; border: 0; border-radius: var(--radio);
+  padding: 11px 22px; font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: filter .25s, box-shadow .25s;
+}
+.btn-peligro:hover:not(:disabled) { filter: brightness(1.1); box-shadow: 0 0 20px rgba(var(--error-rgb), .35); }
+.btn-peligro:disabled { opacity: .5; cursor: not-allowed; }
+.btn-peligro[aria-busy="true"] { cursor: progress; }
+.btn-icono:disabled { opacity: .5; cursor: progress; }
+
+/* ---------- Avisos (toasts) ---------- */
+/* Éxito = cian, error = rojo, info = gris: se evita sumar más colores a la paleta. */
+.toasts {
+  position: fixed; z-index: 80; right: 24px; bottom: 24px;
+  display: flex; flex-direction: column; gap: 10px;
+  width: min(380px, calc(100vw - 32px));
+  pointer-events: none; /* el contenedor no bloquea clics; cada aviso sí los recibe */
+}
+.toast {
+  --tono: var(--texto-2);
+  pointer-events: auto;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 12px;
+  padding: 14px 10px 14px 16px;
+  background: var(--superficie); border: 1px solid var(--borde-fuerte); border-left: 3px solid var(--tono);
+  border-radius: 10px; box-shadow: 0 8px 28px rgba(0, 0, 0, .45);
+  animation: aparecer .25s ease both;
+}
+.toast-exito { --tono: var(--cian); }
+.toast-error { --tono: var(--error); }
+.toast-icono { color: var(--tono); margin-top: 1px; }
+.toast-texto { font-size: 14px; line-height: 1.45; overflow-wrap: anywhere; padding-top: 1px; }
+.toast-cerrar {
+  display: grid; place-items: center; width: 28px; height: 28px; padding: 0;
+  background: transparent; border: 0; border-radius: 6px; color: var(--texto-3); cursor: pointer;
+  transition: color .2s;
+}
+.toast-cerrar .ico { width: 16px; height: 16px; }
+.toast-cerrar:hover { color: var(--texto); }
+
+/* ---------- Ventana de confirmación ---------- */
+body.modal-abierto { overflow: hidden; }
+
+.modal-capa {
+  position: fixed; inset: 0; z-index: 70;
+  display: grid; place-items: center; padding: 24px;
+  background: rgba(0, 0, 0, .72);
+  animation: aparecer .2s ease both;
+}
+.modal {
+  width: 100%; max-width: 460px; max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); overflow-y: auto;
+  padding: 28px 28px 24px;
+  background: var(--superficie); border: 1px solid var(--borde-fuerte); border-radius: 16px;
+}
+.modal:focus { outline: none; }
+.modal-titulo { font-family: var(--fuente-titulo); font-weight: 700; font-size: 22px; line-height: 1.2; margin-bottom: 10px; }
+.modal-texto { color: var(--texto-2); overflow-wrap: anywhere; }
+.modal-casilla { display: flex; align-items: flex-start; gap: 10px; margin-top: 18px; font-size: 14px; color: var(--texto-2); cursor: pointer; }
+.modal-casilla input { flex: none; width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--rosa); cursor: pointer; }
+.modal-error { margin: 18px 0 0; }
+.modal-acciones { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+.modal-acciones button { min-height: 44px; justify-content: center; }
+.modal-acciones .btn-primario { padding: 11px 22px; font-size: 14px; }
+
+@media (max-width: 640px) {
+  /* Avisos arriba (bajo la barra superior): así no tapan las barras de acciones inferiores de las próximas pantallas */
+  .toasts { top: 76px; bottom: auto; left: 16px; right: 16px; width: auto; }
+  /* La confirmación se convierte en una hoja que sube desde abajo, con botones a todo el ancho */
+  .modal-capa { align-items: end; padding: 0; }
+  .modal {
+    max-width: none; max-height: 90vh; max-height: 90dvh;
+    padding: 24px 20px calc(20px + env(safe-area-inset-bottom, 0px));
+    border-radius: 16px 16px 0 0; border-bottom: 0;
+  }
+  .modal-acciones { flex-direction: column-reverse; }
+  .modal-acciones button { width: 100%; }
+}
