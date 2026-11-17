@@ -8,18 +8,26 @@
 //
 // Parámetros:
 //   ruta      -> por ejemplo '/api/productos'
-//   opciones  -> { method, body, timeoutMs, onLento }
+//   opciones  -> { method, body, token, timeoutMs, onLento }
+//     token:   JWT del administrador. Si se pasa, se envía como
+//              "Authorization: Bearer <token>" (rutas /api/admin/*).
 //     onLento: función que se llama si la respuesta tarda más de 4 s
 //              (sirve para avisar "estamos despertando el servidor").
-async function apiFetch(ruta, { method = 'GET', body, timeoutMs = 60000, onLento } = {}) {
+async function apiFetch(ruta, { method = 'GET', body, token, timeoutMs = 60000, onLento } = {}) {
   const controlador = new AbortController();
   const temporizador = setTimeout(() => controlador.abort(), timeoutMs);
   const avisoLento = onLento ? setTimeout(onLento, 4000) : null;
 
+  // Solo se añaden las cabeceras necesarias: las peticiones públicas siguen
+  // saliendo exactamente igual que antes (sin Authorization).
+  const cabeceras = {};
+  if (body) cabeceras['Content-Type'] = 'application/json';
+  if (token) cabeceras.Authorization = `Bearer ${token}`;
+
   try {
     const respuesta = await fetch(RAJUKO_API_URL + ruta, {
       method,
-      headers: body ? { 'Content-Type': 'application/json' } : undefined,
+      headers: Object.keys(cabeceras).length > 0 ? cabeceras : undefined,
       body: body ? JSON.stringify(body) : undefined,
       signal: controlador.signal,
     });
