@@ -8,6 +8,7 @@ import { productosRouter } from './routes/productos.js';
 import { contactoRouter } from './routes/contacto.js';
 import { suscriptoresRouter } from './routes/suscriptores.js';
 import { authRouter } from './routes/auth.js';
+import { adminRouter } from './routes/admin.js';
 
 export const app = express();
 
@@ -47,6 +48,7 @@ app.use('/api/productos', productosRouter);
 app.use('/api/contacto', contactoRouter);
 app.use('/api/suscriptores', suscriptoresRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/admin', adminRouter);
 
 // Ruta inexistente
 app.use((_req, res) => res.status(404).json({ error: 'Ruta no encontrada.' }));
