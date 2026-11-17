@@ -4,9 +4,11 @@
 import { Router } from 'express';
 import { requerirAdmin } from '../middleware/requerirAdmin.js';
 import { adminProductosRouter } from './adminProductos.js';
+import { adminMensajesRouter } from './adminMensajes.js';
 
 export const adminRouter = Router();
 
 adminRouter.use(requerirAdmin);
 
 adminRouter.use('/productos', adminProductosRouter);
+adminRouter.use('/mensajes', adminMensajesRouter);
